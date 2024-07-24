@@ -17,7 +17,10 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
     
-
+    <meta name="google-site-verification" content="0ovaVnJaznvW1o4r4Q1K4Kml6RgUztZ7Ey0-xXWXSlY">
+    <meta name='dmca-site-verification' content='OTF2T2QvNVExTTZTQ1BzQVdUQlBxYzU1YTFNb2U2UVFzbXVXZHVHLzFjbz01'>
+    <meta name="msvalidate.01" content="2F064151DF891C0238A43AC7C99D4F45">
+    <meta name="p:domain_verify" content="c40e82cacee7c266d71d742e4fbd2e60">
     
     
     <link rel="canonical" href="{{$url}}">
