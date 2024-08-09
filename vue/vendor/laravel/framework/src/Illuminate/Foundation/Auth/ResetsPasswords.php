@@ -26,6 +26,7 @@ trait ResetsPasswords
     {
         return view('auth.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email]
+
         );
     }
 
