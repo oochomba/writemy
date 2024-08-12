@@ -84,7 +84,8 @@ class FrontController extends Controller{
                 $ratings->reviews=0;
                 $ratings->save();
             
-                $mfrom=Auth::user()->id;	
+                // $mfrom=Auth::user()->id;	
+                $mfrom=87879;
                 $mto=$id;
                 $message="You account has been created. Your email is ".$email." and your password is ".$pass.". Change password on login. ";
                 $msubject="Account Created";
