@@ -88,13 +88,14 @@ class UseraccountsController extends Controller{
 			$ratings->save();
 		
 			$mfrom=Auth::user()->id;	
+			// dd($mfrom);
 			$mto=$id;
 			$message="You account has been created. Your email is ".$email." and your password is ".$pass.". Change password on login. ";
 			$msubject="Account Created";
 			$datecreated=Carbon::now();
 			$user_id=Auth::user()->id;
 		
-			//app()->call('App\Http\Controllers\SendemailsController@prepareEmail', [$mfrom,$mto,$msubject,$message,"",$datecreated,$user_id]);
+			app()->call('App\Http\Controllers\SendemailsController@prepareEmail', [$mfrom,$mto,$msubject,$message,"",$datecreated,$user_id]);
 			flash('User registered successfully.','success');
 			return Redirect::back();
 		}else{

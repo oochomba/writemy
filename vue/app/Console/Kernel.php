@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->exec('node /var/www/html/wpf/sendmail.php')->everyMinute();
     }
 
     /**

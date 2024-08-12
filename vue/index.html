@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotation</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 210mm;
+            height: 297mm;
+            margin: auto;
+            background: red;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .invoice-wrapper {
+            background-color: #fff;
+            padding: 20mm;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20mm;
+        }
+
+        .logo img {
+            max-width: 100px;
+        }
+
+        .invoice-address {
+            text-align: right;
+        }
+
+        .invoice-header-after {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4mm;
+        }
+
+        .quotation-to {
+            text-align: left;
+            width: 48%;
+        }
+
+        .quotation-to-content {
+            display: flex;
+            justify-content: space-between
+        }
+
+        .quotation-to-company-name {
+            height: 80px;
+            border: 1px solid #222;
+            border-radius: 8px;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding: 5px;
+            width: -webkit-fill-available;
+            width: -moz-available;
+        }
+
+        .quotation-to-company-name p {
+            color: #777;
+        }
+
+        .quotation-to-right {
+            width: 48%;
+        }
+
+        .quotation-to-right table {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .quotation-to-right table tbody {
+            width: 100%;
+        }
+
+        .quotation-to-right table tbody tr td.quotation-number-label {
+            border: none;
+            padding: 0px;
+            width: 90px;
+        }
+
+        .quotation-to-right table tbody tr td {
+            border: none;
+            padding: 0px;
+            width: 72%;
+            padding-bottom: 10px;
+        }
+
+        .quotation-to-right table tbody tr td>div.quotation-number {
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 5px;
+            color: #777;
+        }
+
+
+
+        .quotation-to-right table tbody tr td.quotation-date-label {
+            border: none;
+            padding: 0px;
+            width: 90px;
+        }
+
+        .quotation-to-right table tbody tr td.quotation-date {
+            border: none;
+            padding: 0px;
+            width: 72%;
+        }
+
+        .quotation-to-right table tbody tr td>div.quotation-date {
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 5px;
+            color: #777;
+        }
+
+        .quotation-to-right p {
+            text-align: right;
+        }
+
+        .invoice-content-details {
+            margin-top: 10mm;
+        }
+
+        .invoice-content-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .invoice-content-details table thead {
+            background: #222;
+            color: #fff;
+        }
+
+        .invoice-content-details table thead tr th {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .invoice-content-details table thead tr th:first-child {
+            background: teal;
+            width: 16%;
+        }
+
+        .invoice-content-details table tbody {
+            height: 200px;
+            vertical-align: top;
+        }
+
+        .invoice-content-details table tbody tr td:first-child {
+            background: teal;
+            -ms-grid-row-span: 3;
+        }
+
+        .invoice-content-details table tbody tr td:first-child>div {
+            color: #fff;
+            text-transform: uppercase;
+            transform: rotate(-90deg);
+            margin-top: 171px;
+            width: 104px;
+            font-size: 41px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invoice-wrapper">
+        <div class="invoice-header">
+            <div class="logo">
+                <img src="http://127.0.0.1:8001/uploads/setting/logo_qcvBJE0Nf9.png" alt="Company Logo">
+            </div>
+            <div class="invoice-address">
+                <p>Anywhere Everywhere</p>
+                <p>P.O Box XXX-00100</p>
+                <p>Nairobi Kenya</p>
+                <p>Email: <a href="mailto:companyemail@gmail.com">companyemail@gmail.com</a></p>
+                <p>Tel: +254 726 XXX XXX</p>
+            </div>
+        </div>
+        <div class="invoice-header-after">
+            <div class="quotation-to">
+                <div class="quotation-to-content">
+                    <div>
+                        <p style="text-align: right;">Quotation <br>to:</p>
+                    </div>
+                    <div class="quotation-to-company-name">
+                        <p>The company goes here wilth long text</p>
+                    </div>
+                </div>
+            </div>
+            <div class="quotation-to-right">
+                <table class="quotation-to-right-table">
+                    <tbody>
+                        <tr>
+                            <td class="quotation-number-label">Quotation #</td>
+                            <td>
+                                <div class="quotation-number">
+                                    EQ XXX
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="quotation-date-label">Date</td>
+                            <td>
+                                <div class="quotation-date">
+                                    Aug 9, 2024
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <p>VAT/PIN REG. NO: A00XXXXX</p>
+            </div>
+        </div>
+
+        <div class="invoice-content-details">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Item Description</th>
+                        <th>Price</th>
+                        <th>Qty.</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                Quotation</div>
+                        </td>
+                        <td style="padding: 10px; text-align: left; border-left: 1px solid #000; border-bottom:none;">
+                            For transport service from Nairobi to Village<br>Cost includes: Car hire, driver fuel,
+                            picking & dropping from home
+                        </td>
+                        <td
+                            style="padding: 10px; text-align: left; border: 1px solid #000; border-bottom:none; border-top: none;">
+                        </td>
+                        <td
+                            style="padding: 10px; text-align: left; border: 1px solid #000; border-bottom:none;border-top: none;">
+                        </td>
+                        <td
+                            style="padding: 10px; text-align: left; border: 1px solid #000; border-bottom:none;border-top: none;">
+                        </td>
+                    </tr>
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th style="background: teal;"></th>
+                        <th
+                            style="padding: 10px; border: 1px solid #000; text-align: left; border-bottom: none; border-left: none;">
+                        </th>
+                        <th style="padding: 10px; border: 1px solid #000; text-align: left; text-wrap: nowrap;">Sub
+                            Total:</th>
+                        <th style="padding: 10px; border: 1px solid #000; text-align: left;" colspan="2"></th>
+                    </tr>
+                    <tr>
+                        <th rowspan="2"></th>
+                        <th style="padding: 10px; border: 1px solid #000; text-align: left; border: none;"></th>
+                        <th style="padding: 10px; border: 1px solid #000; text-align: left; text-wrap: nowrap;">Tax
+                            (16%):</th>
+                        <th style="padding: 10px; border: 1px solid #000; text-align: left;" colspan="2"></th>
+                    </tr>
+                    <tr>
+                        <th style="padding: 10px; border: 1px solid #000; text-align: left; border: none;"></th>
+                        <th style="padding: 10px; border: 1px solid #000; text-align: left; text-wrap: nowrap;">Total:
+                        </th>
+                        <th style="padding: 10px; border: 1px solid #000; text-align: left;" colspan="2"></th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 10mm;">
+            <div style="padding-right: 8mm;">
+                <div style="padding-bottom: 6px; display: flex; justify-content: space-between;">
+                    <span style="width: 136px;">
+                        Prepared by:
+                    </span>
+                    <span style="border-bottom: 2px solid #000; width: 100%;">
+                        John Smith
+                    </span>
+                </div>
+
+                <div style="padding-bottom: 6px; display: flex; justify-content: space-between;">
+                    <span style="width: 136px;">
+                        Approved by:
+                    </span>
+                    <span style="border-bottom: 2px solid #000; width: 100%;">
+                        John Smith Long Text
+                    </span>
+                </div>
+
+                <div style="padding-top: 8px;">
+                    <p>Terms & Conditions</p>
+                    <p>1. 50% booking fee, balance before starting the trip.</p>
+                    <p>2. Quotation valid for 30 days.</p>
+                </div>
+                <div style="padding-top: 8px; width: 40%; text-align: center;">
+                    <div style="border-bottom: 2px solid #000;">
+                        <p>sign here</p>
+                    </div>
+                    <p>Authorised Sign</p>
+                </div>
+
+            </div>
+            <div style="width: 37%;">
+                <p>Payment Info:</p>
+                <div style="padding-bottom: 8px; padding-top: 8px;">
+                    <p>Pay Bill Coop bank. 400XXX</p>
+                    <p>Acc: XXXXXXX</p>
+                </div>
+
+                <div style="padding-bottom: 8px;">
+                    <p>Cheque payments to be made to <br> Charchar Rental & Travels.</p>
+                </div>
+
+                <table style="width: 100%; border-collapse: collapse; border: 1px solid green;">
+                    <thead style="background-color: green;color: #fff;">
+                        <tr>
+                            <th style="text-align: left; padding: 4px">M-Pesa Image Here</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 4px;">
+                                Till No. XXXXXX
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
