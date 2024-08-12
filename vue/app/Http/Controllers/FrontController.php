@@ -97,18 +97,12 @@ class FrontController extends Controller
                 $datecreated = Carbon::now();
                 $user_id = Auth::user()->id;
 
-                if (app()->call('App\Http\Controllers\SendemailsController@prepareEmail', [$mfrom, $mto, $msubject, $message, "", $datecreated, $user_id])) {
-                    $user = Auth::attempt(['email' => $request->email, 'password' => $pass]);
-                    if ($user) {
+                app()->call('App\Http\Controllers\SendemailsController@prepareEmail', [$mfrom, $mto, $msubject, $message, "", $datecreated, $user_id]);
+                $user = Auth::attempt(['email' => $request->email, 'password' => $pass]);
+                if ($user) {
 
-                        return $this->createRorder($request);
-                    } else {
-
-                        return $this->redirectToLogin($email);
-                    }
+                    return $this->createRorder($request);
                 } else {
-                    //delete the already created account
-                    $user->delete($user_id);
 
                     return $this->redirectToLogin($email);
                 }
@@ -299,7 +293,7 @@ class FrontController extends Controller
                         $rand = rand(11111, 111111);
                         $id = 12000 + $rand;
                     }
-                    
+
                     $role = 3;
                     $pass = str_random(8);
                     $result = substr($email, 0, 7);

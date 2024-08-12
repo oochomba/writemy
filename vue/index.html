@@ -23,6 +23,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
         .invoice-wrapper {
@@ -147,6 +149,8 @@
         .invoice-content-details table thead {
             background: #222;
             color: #fff;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
         .invoice-content-details table thead tr th {
@@ -157,6 +161,8 @@
         .invoice-content-details table thead tr th:first-child {
             background: teal;
             width: 16%;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
         .invoice-content-details table tbody {
@@ -167,6 +173,8 @@
         .invoice-content-details table tbody tr td:first-child {
             background: teal;
             -ms-grid-row-span: 3;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
         .invoice-content-details table tbody tr td:first-child>div {
@@ -267,7 +275,8 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th style="background: teal;"></th>
+                        <th style="background: teal;  -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;"></th>
                         <th
                             style="padding: 10px; border: 1px solid #000; text-align: left; border-bottom: none; border-left: none;">
                         </th>
