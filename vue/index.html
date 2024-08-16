@@ -139,6 +139,8 @@
 
         .invoice-content-details {
             margin-top: 10mm;
+            display: flex;
+            justify-content: space-between;
         }
 
         .invoice-content-details table {
@@ -158,33 +160,165 @@
             text-align: left;
         }
 
-        .invoice-content-details table thead tr th:first-child {
-            background: teal;
-            width: 16%;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-        }
-
         .invoice-content-details table tbody {
             height: 200px;
             vertical-align: top;
         }
 
-        .invoice-content-details table tbody tr td:first-child {
-            background: teal;
-            -ms-grid-row-span: 3;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
+        .invoice-content-details table tbody tr td {
+            color: #777;
+        }
+
+        .invoice-content-details table tbody tr td:not(:first-child) {
+            text-align: center;
         }
 
         .invoice-content-details table tbody tr td:first-child>div {
             color: #fff;
             text-transform: uppercase;
             transform: rotate(-90deg);
-            margin-top: 171px;
             width: 104px;
             font-size: 41px;
 
+        }
+
+        .item-description,
+        .price,
+        .qty,
+        .col-total {
+            padding: 10px;
+            text-align: left;
+            border-left: 1px solid #000;
+            border-bottom: none;
+            border-right: 1px solid #000;
+        }
+
+        .item-description {
+            border-left: none !important;
+        }
+
+        .price,
+        .qty {
+            border-top: none;
+        }
+
+        .invoice-content-details tfoot tr th {
+            border-top: 1px solid #000;
+            padding: 10px;
+            border: 1px solid #000;
+            text-align: left;
+        }
+
+        .nowrap {
+            text-wrap: nowrap;
+        }
+
+        .border-none {
+            border: none !important;
+        }
+
+        .invoice-content-details tfoot tr th.td-extend {
+            border-top: 1px solid #000;
+            border-left: none !important;
+            border-bottom: none !important;
+        }
+
+        .quotation-vertical {
+            width: 100px;
+            background: teal;
+            height: calc(100vh - 372px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quotation-vertical h2 {
+            color: #fff;
+            text-transform: uppercase;
+            transform: rotate(-90deg);
+            /* width: 104px; */
+            font-size: 41px;
+        }
+
+        .content-bottom {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10mm;
+        }
+
+        .content-bottom .left-col {
+            padding-right: 8mm;
+        }
+
+        .content-bottom .left-col .inner-left,
+        .content-bottom .left-col .inner-right {
+            padding-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+
+        }
+
+        .content-bottom .left-col .inner-left span.left,
+        .content-bottom .left-col .inner-right span.left {
+            width: 136px;
+        }
+
+        .content-bottom .left-col .inner-left span.right,
+        .content-bottom .left-col .inner-right span.right {
+            border-bottom: 2px solid #000;
+            width: 100%;
+        }
+
+        .content-bottom .terms-conditions {
+            padding-top: 8px;
+        }
+
+        .content-bottom .terms-conditions p.bold,
+        .content-bottom .right-col p.bold {
+            font-weight: bold !important;
+        }
+
+        .signage {
+            padding-top: 8px;
+            width: 40%;
+            text-align: center;
+        }
+
+        .signage>div {
+            border-bottom: 2px solid #000;
+        }
+
+        .content-bottom .right-col {
+            width: 37%;
+        }
+
+        .content-bottom .right-col div {
+            padding-bottom: 8px;
+
+        }
+
+        .content-bottom .right-col div.bank-info {
+            padding-top: 8px;
+        }
+
+        .content-bottom .right-col table.lipa-na-mpesa {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid green;
+        }
+
+        .content-bottom .right-col table.lipa-na-mpesa thead {
+            background-color: green;
+            color: #fff;
+        }
+
+        .content-bottom .right-col table.lipa-na-mpesa thead tr th {
+            text-align: left;
+            padding: 4px
+        }
+
+        .content-bottom .right-col table.lipa-na-mpesa tbody tr td {
+            padding: 4px
         }
     </style>
 </head>
@@ -193,7 +327,7 @@
     <div class="invoice-wrapper">
         <div class="invoice-header">
             <div class="logo">
-                <img src="http://127.0.0.1:8001/uploads/setting/logo_qcvBJE0Nf9.png" alt="Company Logo">
+                <img src="http://127.0.0.1:8000/uploads/setting/logo_qcvBJE0Nf9.png" alt="Company Logo">
             </div>
             <div class="invoice-address">
                 <p>Anywhere Everywhere</p>
@@ -241,118 +375,121 @@
         </div>
 
         <div class="invoice-content-details">
+            <div id="quotationText" class="quotation-vertical">
+                <h2>
+                    Quotation
+                </h2>
+            </div>
             <table>
                 <thead>
                     <tr>
-                        <th></th>
                         <th>Item Description</th>
                         <th>Price</th>
                         <th>Qty.</th>
                         <th>Total</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="mainTable">
                     <tr>
-                        <td>
-                            <div>
-                                Quotation</div>
-                        </td>
-                        <td style="padding: 10px; text-align: left; border-left: 1px solid #000; border-bottom:none;">
+                        <td class="item-description">
                             For transport service from Nairobi to Village<br>Cost includes: Car hire, driver fuel,
                             picking & dropping from home
                         </td>
-                        <td
-                            style="padding: 10px; text-align: left; border: 1px solid #000; border-bottom:none; border-top: none;">
+                        <td class="price">100 </td>
+                        <td class="qty">1 </td>
+                        <td class="col-total">100 </td>
+                    </tr>
+                    <tr>
+                        <td class="item-description">
+                            For transport service from Nairobi to Village<br>Cost includes: Car hire, driver fuel,
+                            picking & dropping from home
                         </td>
-                        <td
-                            style="padding: 10px; text-align: left; border: 1px solid #000; border-bottom:none;border-top: none;">
+                        <td class="price">100 </td>
+                        <td class="qty">1 </td>
+                        <td class="col-total">100 </td>
+                    </tr>
+                    <tr>
+                        <td class="item-description">
+                            For transport service from Nairobi to Village<br>Cost includes: Car hire, driver fuel,
+                            picking & dropping from home
                         </td>
-                        <td
-                            style="padding: 10px; text-align: left; border: 1px solid #000; border-bottom:none;border-top: none;">
-                        </td>
+                        <td class="price">100 </td>
+                        <td class="qty">1 </td>
+                        <td class="col-total">100 </td>
                     </tr>
 
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th style="background: teal;  -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;"></th>
-                        <th
-                            style="padding: 10px; border: 1px solid #000; text-align: left; border-bottom: none; border-left: none;">
-                        </th>
-                        <th style="padding: 10px; border: 1px solid #000; text-align: left; text-wrap: nowrap;">Sub
-                            Total:</th>
-                        <th style="padding: 10px; border: 1px solid #000; text-align: left;" colspan="2"></th>
+                        <th class="td-extend"></th>
+                        <th class="nowrap">Sub Total:</th>
+                        <th colspan="2"></th>
                     </tr>
                     <tr>
-                        <th rowspan="2"></th>
-                        <th style="padding: 10px; border: 1px solid #000; text-align: left; border: none;"></th>
-                        <th style="padding: 10px; border: 1px solid #000; text-align: left; text-wrap: nowrap;">Tax
-                            (16%):</th>
-                        <th style="padding: 10px; border: 1px solid #000; text-align: left;" colspan="2"></th>
+                        <th class="border-none" rowspan="2"></th>
+                        <th class="nowrap">Tax (16%):</th>
+                        <th colspan="2"></th>
                     </tr>
                     <tr>
-                        <th style="padding: 10px; border: 1px solid #000; text-align: left; border: none;"></th>
-                        <th style="padding: 10px; border: 1px solid #000; text-align: left; text-wrap: nowrap;">Total:
-                        </th>
-                        <th style="padding: 10px; border: 1px solid #000; text-align: left;" colspan="2"></th>
+                        <th>Total: </th>
+                        <th colspan="2"></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
-        <div style="display: flex; justify-content: space-between; margin-top: 10mm;">
-            <div style="padding-right: 8mm;">
-                <div style="padding-bottom: 6px; display: flex; justify-content: space-between;">
-                    <span style="width: 136px;">
+        <div class="content-bottom">
+            <div class="left-col">
+                <div class="inner-left">
+                    <span class="left">
                         Prepared by:
                     </span>
-                    <span style="border-bottom: 2px solid #000; width: 100%;">
+                    <span class="right">
                         John Smith
                     </span>
                 </div>
 
-                <div style="padding-bottom: 6px; display: flex; justify-content: space-between;">
-                    <span style="width: 136px;">
+                <div class="inner-right">
+                    <span class="left">
                         Approved by:
                     </span>
-                    <span style="border-bottom: 2px solid #000; width: 100%;">
+                    <span class="right">
                         John Smith Long Text
                     </span>
                 </div>
 
-                <div style="padding-top: 8px;">
-                    <p>Terms & Conditions</p>
+                <div class="terms-conditions">
+                    <p class="bold">Terms & Conditions</p>
                     <p>1. 50% booking fee, balance before starting the trip.</p>
                     <p>2. Quotation valid for 30 days.</p>
                 </div>
-                <div style="padding-top: 8px; width: 40%; text-align: center;">
-                    <div style="border-bottom: 2px solid #000;">
+                <div class="signage">
+                    <div>
                         <p>sign here</p>
                     </div>
                     <p>Authorised Sign</p>
                 </div>
 
             </div>
-            <div style="width: 37%;">
-                <p>Payment Info:</p>
-                <div style="padding-bottom: 8px; padding-top: 8px;">
+            <div class="right-col">
+                <p class="bold">Payment Info:</p>
+                <div class="bank-info">
                     <p>Pay Bill Coop bank. 400XXX</p>
                     <p>Acc: XXXXXXX</p>
                 </div>
 
-                <div style="padding-bottom: 8px;">
+                <div>
                     <p>Cheque payments to be made to <br> Charchar Rental & Travels.</p>
                 </div>
 
-                <table style="width: 100%; border-collapse: collapse; border: 1px solid green;">
-                    <thead style="background-color: green;color: #fff;">
+                <table class="lipa-na-mpesa">
+                    <thead>
                         <tr>
-                            <th style="text-align: left; padding: 4px">M-Pesa Image Here</th>
+                            <th>M-Pesa Image Here</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="padding: 4px;">
+                            <td>
                                 Till No. XXXXXX
                             </td>
                         </tr>
@@ -365,5 +502,14 @@
         </div>
     </div>
 </body>
+<script>
+    const tbodyheight = document.getElementById("mainTable");
+    const rect = tbodyheight.getBoundingClientRect();
+    console.log("Width: " + rect.width + " px");
+    console.log("Height: " + rect.height + " px");
+    const quotationText = document.getElementById("quotationText");
+    const sumHeight = rect.height + 80;
+    quotationText.style.height = sumHeight + "px";
+</script>
 
 </html>
