@@ -53,9 +53,9 @@ class FrontController extends Controller
         } else {
 
             $email = $request->email;
-
             $role = 3;
             $emailexists = User::where('email', $email)->first();
+
             if ($emailexists == "") {
                 $lastuser = User::latest()->first();
                 if (count($lastuser) > 0) {
@@ -94,14 +94,15 @@ class FrontController extends Controller
                 $ratings->reviews = 0;
                 $ratings->save();
 
-                // $mfrom=Auth::user()->id;	
+                // $mfrom = Auth::user()->id;
                 $mfrom = $this->admin->id;
                 $mto = $id;
                 $message = "You account has been created. Your email is " . $email . " and your password is " . $pass . ". Change password on login. ";
                 $msubject = "Account Created";
                 $datecreated = Carbon::now();
-                $user_id = Auth::user()->id;
-
+                // $user_id = Auth::user()->id;
+                $user_id = $id;
+                // dd($email.' '.$pass.' user id:'.$user_id);
                 app()->call('App\Http\Controllers\SendemailsController@prepareEmail', [$mfrom, $mto, $msubject, $message, "", $datecreated, $user_id]);
                 $user = Auth::attempt(['email' => $request->email, 'password' => $pass]);
                 if ($user) {

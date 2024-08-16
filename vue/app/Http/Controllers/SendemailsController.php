@@ -28,7 +28,6 @@ class SendemailsController extends Controller
 		$qmail->user_id = $user_id;
 		$qmail->save();
 		$this->sendEmails();
-		$this->sendQueue();
 	}
 	public function prepareQueue($mfrom, $mto, $msubject, $mymessage, $datecreated)
 	{
@@ -39,15 +38,13 @@ class SendemailsController extends Controller
 		$qmail->mymessage = $mymessage;
 		$qmail->datecreated = $datecreated;
 		$qmail->save();
-		$this->sendEmails();
 		$this->sendQueue();
 	}
 	public function sendEmails()
 	{
 		$unsent = Qmailer::where('status', 0)->get();
-
 		foreach ($unsent as $tomail) {
-			// dd($tomail);
+
 			$mto = User::where('id', $tomail->mto)->first();
 			$mfrom = User::where('id', $tomail->mfrom)->first();
 			$sender = $mfrom->name;
@@ -56,20 +53,30 @@ class SendemailsController extends Controller
 			$email = $mto->email;
 			if ($mto->role == 1 || $mto->role == 3) {
 				$mymail = app()->make(\Snowfire\Beautymail\Beautymail::class);
-				$mymail->send('emails.mailtemp',  ['details' => $details, 'emailsender' => $sender, 'rece' => $name], function ($message) use ($email, $name, $tomail) {
-					$message
-						->from('support@writemypaperforme.org', 'WriteMyPaperforMe')
-						->to($email, $name)
-						->subject($tomail->msubject);
-				});
+
+				try {
+					$mymail->send('emails.mailtemp',  ['details' => $details, 'emailsender' => $sender, 'rece' => $name], function ($message) use ($email, $name, $tomail) {
+						$message
+							->from('support@writemypaperforme.org', 'WriteMyPaperforMe')
+							->to($email, $name)
+							->subject($tomail->msubject);
+					});
+				} catch (\Exception $e) {
+					dd($e);
+				}
 			} else {
 				$mymail = app()->make(\Snowfire\Beautymail\Beautymail::class);
-				$mymail->send('emails.writer',  ['details' => $details, 'emailsender' => $sender, 'rece' => $name], function ($message) use ($email, $name, $tomail) {
-					$message
-						->from('support@writemypaperforme.org', 'WriteMyPaperforMe')
-						->to($email, $name)
-						->subject($tomail->msubject);
-				});
+
+				try {
+					$mymail->send('emails.writer',  ['details' => $details, 'emailsender' => $sender, 'rece' => $name], function ($message) use ($email, $name, $tomail) {
+						$message
+							->from('support@writemypaperforme.org', 'WriteMyPaperforMe')
+							->to($email, $name)
+							->subject($tomail->msubject);
+					});
+				} catch (\Exception $e) {
+					dd($e);
+				}
 			}
 			Qmailer::where('id', $tomail->id)->update(['status' => 1]);
 		}
