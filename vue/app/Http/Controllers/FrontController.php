@@ -97,7 +97,7 @@ class FrontController extends Controller
                 // $mfrom = Auth::user()->id;
                 $mfrom = $this->admin->id;
                 $mto = $id;
-                $message = "You account has been created. Your email is " . $email . " and your password is " . $pass;
+                $message = "Account created. Email: " . $email . " Password: " . $pass;
                 $msubject = "Account Created";
                 $datecreated = Carbon::now();
                 // $user_id = Auth::user()->id;
