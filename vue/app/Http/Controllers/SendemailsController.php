@@ -44,11 +44,11 @@ class SendemailsController extends Controller
 	{
 		$unsent = Qmailer::where('status', 0)->get();
 		foreach ($unsent as $tomail) {
-
 			$mto = User::where('id', $tomail->mto)->first();
 			$mfrom = User::where('id', $tomail->mfrom)->first();
 			$sender = $mfrom->name;
 			$details = $tomail->mymessage;
+
 			$name = $mto->name;
 			$email = $mto->email;
 			if ($mto->role == 1 || $mto->role == 3) {

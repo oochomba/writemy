@@ -104,6 +104,7 @@ class FrontController extends Controller
                 $user_id = $id;
                 // dd($email.' '.$pass.' user id:'.$user_id);
                 app()->call('App\Http\Controllers\SendemailsController@prepareEmail', [$mfrom, $mto, $msubject, $message, "", $datecreated, $user_id]);
+            
                 $user = Auth::attempt(['email' => $request->email, 'password' => $pass]);
                 if ($user) {
                     return $this->createRorder($request);
