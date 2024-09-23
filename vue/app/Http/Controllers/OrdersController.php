@@ -549,7 +549,7 @@ class OrdersController extends Controller{
 
 	   public function downloadZip($id)
     {
-        $zip = new ZipArchive;
+		$zip = new ZipArchive();
    
         $fileName = time().$id.'.zip';
         $folderName = rand(50570,158077).$id;
