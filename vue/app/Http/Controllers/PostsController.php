@@ -102,7 +102,7 @@ public function updatePost(Request $request){
         'label' => 'required',
         'category' => 'required|exists:cats,id', // Validate that the category exists
     ]);
-
+// dd($request->all());
     if ($validator->fails()) {
         flash('You have input errors on the form. Correct them please.', 'danger');
         return Redirect::back()
