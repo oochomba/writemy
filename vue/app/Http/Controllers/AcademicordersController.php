@@ -161,7 +161,6 @@ class AcademicordersController extends Controller
 	}
 	
 	public function viewOrder($id,Request $request){
-		
 		if(Auth::user()->role==3){
 			$order=Order::findOrFail($id);
 			if($order->user_id==Auth::user()->id){
@@ -178,7 +177,6 @@ class AcademicordersController extends Controller
 			flash('You have no access to this order.','danger');
 			return Redirect::back();
 		}    
-		
 		if($order->order_type==1){
 			return view('academic.orders.order',compact('order'));
 		}else{

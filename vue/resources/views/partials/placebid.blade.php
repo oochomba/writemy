@@ -27,7 +27,7 @@
 								<span class="help-block"><strong>{{ $errors->first('offer') }}</strong></span>
 							@endif
 						</div>
-						<button type="submit" value="Submit Bid" class="btn btn-success"></button>
+						<button type="submit" value="Submit Bid" class="btn btn-success">Submib Bid</button>
 					</form>
 				</div>
 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
