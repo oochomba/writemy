@@ -46,7 +46,7 @@ $reviews=$userrating->reviews;
             <small>Expert Writer</small>
         </div>
         <div class="col-md-4">
-            <p class="bidcmnt">{{$bid->text}}</p>
+            <p class="bidcmnt">{!!$bid->text!!}</p>
         </div>
         <div class="col-md-4" style="text-align:center;">
             <p class="text-muted  mr-3">
