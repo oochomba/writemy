@@ -22,7 +22,7 @@
 						</div>
 						<div class="{{ $errors->has('offer') ? ' has-error' : '' }}">
 							<label for="offer" class="lable">Bid Message</label>
-							<textarea    class="form-control " name="offer" value="{{ old('offer') }}" rows="3" maxlength="300" required="true"></textarea>
+							<textarea    class="form-control " name="offer" value="{{ old('offer') }}" rows="3" maxlength="300" required></textarea>
 							@if ($errors->has('offer'))
 								<span class="help-block"><strong>{{ $errors->first('offer') }}</strong></span>
 							@endif
