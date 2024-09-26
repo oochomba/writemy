@@ -41,11 +41,11 @@ $ureviews=App\Review::where('student_id',$user->id)->orderBy('created_at','DESC'
 
 <script src="https://cdn.tiny.cloud/1/w75xwosb7fak6zrt4r2hs4wjnvc53o7luvz03yuivs0rjwvv/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
-  tinymce.init({
-    selector: 'textarea',
-    plugins: 'charmap emoticons image link table lists linkchecker',
-    toolbar: 'blocks fontsize | numlist bullist',
-  });
+//   tinymce.init({
+//     selector: 'textarea',
+//     plugins: 'charmap emoticons image link table lists linkchecker',
+//     toolbar: 'blocks fontsize | numlist bullist',
+//   });
 </script>
 
 
