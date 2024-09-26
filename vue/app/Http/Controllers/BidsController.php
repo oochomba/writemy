@@ -40,7 +40,7 @@ class BidsController extends Controller
 		$amount = $request->amount;
 		$text = $request->offer;
 		$hasBid = Bid::where('user_id', $user)->where('question_id', $question_id)->first();
-		dd($hasBid);
+		// dd($hasBid);
 		if ($hasBid != "") {
 			flash('You have an active bid!', 'danger');
 			return Redirect::back();
