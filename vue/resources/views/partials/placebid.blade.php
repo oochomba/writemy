@@ -9,8 +9,8 @@
 				<div class="modal-body">
 					<form class="form-horizontal" role="form"  method="post" action="{{ url('/place-bid') }}">
 						{{ csrf_field() }}
-						<input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
-						<input type="hidden" name="question_id" value="{{$order->id}}"/>
+						<input type="text" name="user_id" value="{{Auth::user()->id}}"/>
+						<input type="text" name="question_id" value="{{$order->id}}"/>
 						<div class="{{ $errors->has('amount') ? ' has-error' : '' }}">
 							<label for="amount" class="lable">Bid Amount</label>
 							<div class="input-group">
