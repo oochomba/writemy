@@ -107,7 +107,7 @@
 										</div><br>
 										<div class="{{ $errors->has('offer') ? ' has-error' : '' }}">
 											<label for="offer" class="lable">Comments:</label>
-											<textarea name="comments" value="{{ old('offer') }}" rows="3" maxlength="200" required="true"></textarea>
+											<textarea name="comments" value="{{ old('offer') }}" rows="3" maxlength="200"></textarea>
 											@if ($errors->has('offer'))
 												<span><strong>{{ $errors->first('offer') }}</strong></span>
 											@endif
