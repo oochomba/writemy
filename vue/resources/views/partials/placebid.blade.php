@@ -9,8 +9,8 @@
 				<div class="modal-body">
 					<form class="form-horizontal" role="form"  method="post" action="{{ url('/place-bid') }}">
 						{{ csrf_field() }}
-						<input type="text" name="user_id" value="{{Auth::user()->id}}"/>
-						<input type="text" name="question_id" value="{{$order->id}}"/>
+						<input type="hidden" name="user_id" value="{{Auth::user()->id}}"/>
+						<input type="hidden" name="question_id" value="{{$order->id}}"/>
 						<div class="{{ $errors->has('amount') ? ' has-error' : '' }}">
 							<label for="amount" class="lable">Bid Amount</label>
 							<div class="input-group">
@@ -22,7 +22,7 @@
 						</div>
 						<div class="{{ $errors->has('offer') ? ' has-error' : '' }}">
 							<label for="offer" class="lable">Bid Message</label>
-							<textarea    class="form-control " name="offer" value="{{ old('offer') }}" rows="3" maxlength="300" required></textarea>
+							<textarea    class="form-control " name="offer" value="{{ old('offer') }}" rows="3" maxlength="300" required="required"></textarea>
 							@if ($errors->has('offer'))
 								<span class="help-block"><strong>{{ $errors->first('offer') }}</strong></span>
 							@endif
