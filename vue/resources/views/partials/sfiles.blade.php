@@ -117,11 +117,11 @@
 											<label class="btn" data-btn="btn-success"><input type="checkbox" name="recommend"  id="option1" value="1" autocomplete="off" checked="true" class="active">Yes</label>
 											<label class="btn" data-btn="btn-warning"><input type="checkbox" name="recommend"  id="option2" value="2" autocomplete="off"> No</label>
 										</div>
-								</form>		
 								<div class="modal-footer">
                                     <button type="submit" value="Submit Review" class="btn btn-success">Submib Review</button>
 								    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								</div>
+								</form>		
 							</div>
 						</div>
 					</div>
