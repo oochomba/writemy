@@ -119,7 +119,7 @@
 										</div>
 								</form>		
 								<div class="modal-footer">
-									<input type="submit" value="Submit Review" class="btn btn-success">
+                                    <button type="submit" value="Submit Review" class="btn btn-success">Submib Review</button>
 								    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
